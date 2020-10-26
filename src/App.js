@@ -8,7 +8,7 @@ function App() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-      fetch("http://hn.algolia.com/api/v1/search?query=react")
+      fetch("https://hn.algolia.com/api/v1/search?query=react")
       .then((response) => response.json())
       .then((response) => {
           const newArticles = response.hits.map((result) => ({
