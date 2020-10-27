@@ -16,10 +16,13 @@ function App() {
     .then((response) => {
         setLoading(false);
         const newArticles = response.hits.map((result) => ({
-            text: result.title,
-            url: result.url,
-            num_comments: result.num_comments,
-            isCompleted: false,
+          text: result.title,
+          url: result.url,
+          points: result.points,
+          comments: result.num_comments,
+          author: result.author,
+          created: result.created_at_i,
+          isCompleted: false
         }))
       .sort((a, b) => (a.num_comments > b.num_comments ? -1:1));
       setArticles(newArticles);
@@ -43,23 +46,26 @@ function App() {
 
 
   return (
-    <div className="app">
-      <Header setQuery={setQuery} />
-      {/*Display spinner if news are loading*/}
-      <div className="loader-container" style={loading ? {display:"block"} : {display:"none"}}> 
-        <div className="loader"></div>
-      </div>
-      <div className="todo-list" style={loading ? {display:"none"} : {display:"block"}}>
-
-    {/*Check if search gave results*/}
-  <div className="search-term">{articles.length ? `News about "${query}": ` : `No news found for "${query}"`}</div>
-        {articles.map((article, index) => (
-          <Article
-            key={index}
-            index={index}
-            article={article}
-          />
-        ))}
+    <div className="default light">
+      <div className="container">
+        <Header setQuery={setQuery} />
+        {/*Display spinner if news are loading*/}
+        <div className="loader-container" style={loading ? {display:"block"} : {display:"none"}}> 
+          <div className="loader"></div>
+        </div>
+        <section className="SearchResults" style={loading ? {display:"none"} : {display:"block"}}>
+          <div className="SearchResults_container">
+            {/*Check if search gave results*/}
+            <div className="search-term">{articles.length ? `News about "${query}": ` : `No news found for "${query}"`}</div>
+            {articles.map((article, index) => (
+              <Article
+                key={index}
+                index={index}
+                article={article}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
