@@ -18,7 +18,7 @@ main>div {
 }
 
 .app {
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -69,7 +69,7 @@ header {
 
 .SearchHeader_container {
   position: relative;
-  display: inline-block;
+  justify-content: space-around;
   width: calc(100% - 324px);
   margin-right: 16px;
 }
@@ -93,12 +93,24 @@ header {
   border-radius: 0;
   border: none;
   height: 42px;
-  width: 100%;
+  /*width: 100%;*/
   box-shadow: none;
   padding: 16px 144px 16px 54px;
   font-weight: 300;
   background-color: #fff;
   color: rgba(0,0,0,.75);
+}
+
+.SearchInput {
+  width: 80%;
+}
+
+.searchButton {
+  padding: 5px;
+  background-color: transparent;
+  margin-left: 10px;
+  border: none;
+  font-size: 18px;
 }
 
 input[type="search" i] {
@@ -167,6 +179,12 @@ input {
 .Story_separator {
   margin: 0 5px;
   color: #696969;
+}
+
+.search-term {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 15px;
 }
 
 .todo-list {

@@ -5,10 +5,11 @@ import './App.css';
 
 function App() {
   const [articles, setArticles] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("react");
 
   useEffect(() => {
-      fetch("https://hn.algolia.com/api/v1/search?query=react")
+      let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}`
+      fetch(endpoint)
       .then((response) => response.json())
       .then((response) => {
           const newArticles = response.hits.map((result) => ({
@@ -21,12 +22,13 @@ function App() {
         setArticles(newArticles);
         setQuery(response.query);
       });
-  }, []);
+  }, [query]);
 
   return (
     <div className="app">
-      <Header q={query} />
+      <Header setQuery={setQuery} />
       <div className="todo-list">
+        <div className="search-term">News about "{query}":</div>
         {articles.map((article, index) => (
           <Article
             key={index}
