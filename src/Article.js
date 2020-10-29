@@ -1,6 +1,3 @@
-
-import { format } from 'date-fns';
-import { moment } from 'moment';
 export default function Article({ article, index }) {
   const moment = require('moment');
   const timestamp = article.created;
@@ -17,7 +14,7 @@ export default function Article({ article, index }) {
           <div className="Story_data">
             <div className="Story_title">
               <a href=""><span>{article.text}</span></a>
-              <a href="{article.url}" target="_blank" className="Story_link">({article.url})</a>
+              <a href={article.url} target="_blank" className="Story_link">({article.url})</a>
             </div>
             <div className="Story_meta">
               <span><a href="">{article.points} points</a></span>
