@@ -56,7 +56,7 @@ function App() {
         <section className="SearchResults" style={loading ? {display:"none"} : {display:"block"}}>
           <div className="SearchResults_container">
             {/*Check if search gave results*/}
-            <div className="search-term">{articles.length ? `News about "${query}": ` : `No news found for "${query}"`}</div>
+            <div className="search-term">{articles.length ? `${articles.length} News about "${query}": ` : `No news found for "${query}"`}</div>
             {articles.map((article, index) => (
               <Article
                 key={index}

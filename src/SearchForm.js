@@ -7,12 +7,12 @@ export default function SearchForm ({setQuery}) {
         e.preventDefault();
         if (!value) return;
         setQuery(value);
-        setValue("");
+        // setValue("");
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="search" placeholder="Search stories by title, url or author" className="SearchInput" value={value} onChange={e => setValue(e.target.value)}></input>
+            <input type="search" placeholder="Search stories by title, url or author" className="SearchInput" value={value} onChange={e => setValue(e.target.value)} />
             <button className="searchButton">Search</button>
         </form>
     )

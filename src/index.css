@@ -13,6 +13,7 @@ main {
 main>div {
     min-height: 100vh;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -73,8 +74,8 @@ header {
 }
 
 .SearchHeader_logo {
-  -ms-flex: 1 0 180px;
-  flex: 1 0 180px;
+  -ms-flex: 1 0 240px;
+  flex: 1 0 240px;
   max-width: 240px;
   display: -ms-flexbox;
   display: flex;
@@ -115,14 +116,22 @@ header {
   height: 42px;
   /*width: 100%;*/
   box-shadow: none;
-  padding: 16px 144px 16px 54px;
+  padding: 16px 25px 16px 54px;
   font-weight: 300;
   background-color: #fff;
   color: rgba(0,0,0,.75);
 }
 
 .SearchInput {
-  width: 80%;
+  width: 80%!important;
+}
+
+@media (max-width: 768px) {
+  button.searchButton{display:none}
+  .SearchHeader_container {width:100%!important;justify-content: flex-end}
+  .SearchHeader .SearchInput {width: 100%!important}
+  .SearchHeader_label span{display:none}
+  .SearchHeader_logo {flex: 1 0 150px}
 }
 
 .searchButton {
@@ -225,25 +234,6 @@ input {
   font-weight: bold;
   font-size: 14px;
   padding: 15px;
-}
-
-.todo-list {
-  background: #f6f6ef;
-  border-radius: 4px;
-  max-width: 1200px;
-  padding: 5px;
-}
-
-.todo {
-  align-items: center;
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  display: flex;
-  font-size: 12px;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  padding: 3px 10px;
 }
 
 .loader-container {
