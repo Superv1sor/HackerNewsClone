@@ -1,0 +1,260 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #FFF;
+  font-family: Verdana,Geneva,sans-serif;
+  display: block;
+}
+
+main {
+  display: block;
+}
+
+main>div {
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.app {
+  width: 80%;
+  margin: 0 auto;
+}
+
+a {
+  -webkit-transition: color .1s linear;
+  transition: color .1s linear;
+  color: #477dca;
+  text-decoration: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+@media screen and (min-width:1200px) {
+  .container{width:calc(85% - 10px);margin:0 auto}
+}
+
+@media screen and (max-width:1200px) {
+  .container{width:100%}
+}
+
+@media screen and (max-width:480px) {
+  .container{width:100%}
+}
+
+header {
+  background-color: #ff742b;
+  display: block;
+}
+
+.SearchHeader.container {
+  width: 100%!important;
+}
+
+.SearchHeader_search {
+  height: 60px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #ff742b;
+  height: auto;
+  padding: 4px;
+  position: relative;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.SearchHeader_logo {
+  -ms-flex: 1 0 240px;
+  flex: 1 0 240px;
+  max-width: 240px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.SearchHeader_logo img {
+  width: 48px;
+  margin-right: 8px;
+}
+
+.SearchHeader_container {
+  position: relative;
+  justify-content: space-around;
+  width: calc(100% - 324px);
+  margin-right: 16px;
+}
+
+.SearchHeader .SearchIcon {
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  color: #ff742b;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+.SearchHeader_label {
+  color: #000;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.SearchHeader .SearchInput {
+  border-radius: 0;
+  border: none;
+  height: 42px;
+  /*width: 100%;*/
+  box-shadow: none;
+  padding: 16px 25px 16px 54px;
+  font-weight: 300;
+  background-color: #fff;
+  color: rgba(0,0,0,.75);
+}
+
+.SearchInput {
+  width: 80%!important;
+}
+
+@media (max-width: 768px) {
+  button.searchButton{display:none}
+  .SearchHeader_container {width:100%!important;justify-content: flex-end}
+  .SearchHeader .SearchInput {width: 100%!important}
+  .SearchHeader_label span{display:none}
+  .SearchHeader_logo {flex: 1 0 150px}
+}
+
+.searchButton {
+  padding: 5px;
+  background-color: transparent;
+  margin-left: 10px;
+  border: none;
+  font-size: 18px;
+}
+
+input[type="search" i] {
+  appearance: searchfield;
+  box-sizing: border-box;
+  padding: 1px 2px;
+}
+
+input {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: textfield;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+
+.SearchResults {
+  position: relative;
+  background: #f6f6ef;
+  min-height: calc(100vh - 120px);
+}
+
+.Story, .Story_container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.Story {
+  font-size: 14px;
+  padding: 0 16px;
+  min-height: 40px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.Story_data {
+  margin: 4px 0;
+}
+
+.Story_title {
+  width: 100%;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.Story_title a:first-child {
+  margin-right: 4px;
+}
+
+.Story_title a {
+  color: #000;
+}
+
+.Story_title .Story_link {
+  color: #828282;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.Story_meta, .Story_meta a {
+  color: #696969;
+}
+
+.Story_meta {
+  font-size: 10.6667px;
+}
+
+.Story_separator {
+  margin: 0 5px;
+  color: #696969;
+}
+
+.search-term {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.loader-container {
+  background: transparent;
+  width: 80%;
+  position: absolute;
+  top: 200px;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid darkgray;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
