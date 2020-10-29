@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Article from "./Article.js";
 import Header from "./Header.js";
 import './App.css';
+//import './index.css';
+//import './style2.css';
 
 function App() {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("react");
   const [loading, setLoading] = useState(false);
+  // const [stylePath, setStylePath] = useState("./index.css");
  
   const fetchData = (setArticles) => {
     setLoading(true)
@@ -44,9 +47,9 @@ function App() {
       return () => clearInterval(interval);
   }, [query]);
 
-
-  return (
+   return (
     <div className="default light">
+     
       <div className="container">
         <Header setQuery={setQuery} />
         {/*Display spinner if news are loading*/}
