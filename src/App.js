@@ -8,12 +8,21 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("react");
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
   const [pageCount, setPageCount] = useState(50); // api support up to a maximum of 50 page only
   const [currentPage, setCurrentPage] = useState(0);
 
   const fetchData = () => {
     setLoading(true);
     let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}&page=${currentPage}`;
+=======
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  // const [stylePath, setStylePath] = useState("./index.css");
+ 
+  const fetchData = (setArticles) => {
+    setLoading(true)
+    let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}`
+>>>>>>> 877e267... add expand
     fetch(endpoint)
     .then((response) => response.json())
     .then((response) => {
@@ -53,6 +62,10 @@ function App() {
       return () => clearInterval(interval);
   }, [query]);
 
+  const expandArticle = (index) => {
+    setSelectedIndex(index);
+  }
+
    return (
     <div className="default light">
       <div className="container">
@@ -69,7 +82,9 @@ function App() {
               <Article
                 key={index}
                 index={index}
+                selectedIndex = {selectedIndex}
                 article={article}
+                expand={expandArticle}
               />
             ))}
           </div>
