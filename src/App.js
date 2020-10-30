@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Article from "./Article.js";
 import Header from "./Header.js";
 import './App.css';
-import ReactPaginate from 'react-paginate';
+import Pagination from "./Pagination";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -64,7 +64,7 @@ function App() {
         <section className="SearchResults" style={loading ? {display:"none"} : {display:"block"}}>
           <div className="SearchResults_container">
             {/*Check if search gave results*/}
-            <div className="search-term">{articles.length ? `${articles.length} News about "${query}": ` : `No news found for "${query}"`}</div>
+            <div className="search-term">{articles.length ? `News about "${query}": ` : `No news found for "${query}"`}</div>
             {articles.map((article, index) => (
               <Article
                 key={index}
@@ -74,13 +74,8 @@ function App() {
             ))}
           </div>
         </section>
-        <div className="pagination">
-       <ReactPaginate
-         pageCount={pageCount}
-         marginPagesDisplayed={2}
-         pageRangeDisplayed={5}
-         onPageChange={pageChange}
-       />
+        <div className="pagination" style={loading ? {display:"none"} : {display:"block"}}>
+       <Pagination pageCount={pageCount} pageChange={pageChange}/>
        </div>
 
       </div>
