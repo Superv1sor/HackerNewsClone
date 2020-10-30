@@ -1,4 +1,14 @@
-export default function Article({ article, index }) {
+function MoreInfo({article}) {
+  return (
+    <div className="moreInfo" >
+      <p>link: <a target="_blank" href={article.url}>{article.text}</a></p>
+      <p>created-at: {article.created}</p>
+      <p>author: {article.author}</p>
+    </div>
+  )
+}
+
+export default function Article({ article, index, expand, selectedIndex}) {
   const moment = require('moment');
   const timestamp = article.created;
   console.log("Created: " + article.created);
@@ -13,8 +23,9 @@ export default function Article({ article, index }) {
         <div className="Story_container">
           <div className="Story_data">
             <div className="Story_title">
-              <a href=""><span>{article.text}</span></a>
+              <span onClick={() => expand(index)}>{article.text}</span>
               <a href={article.url} target="_blank" className="Story_link">({article.url})</a>
+              {selectedIndex === index ? <MoreInfo article={article}/> : ""}
             </div>
             <div className="Story_meta">
               <span><a href="">{article.points} points</a></span>

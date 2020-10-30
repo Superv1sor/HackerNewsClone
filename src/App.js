@@ -3,17 +3,21 @@ import Article from "./Article.js";
 import Header from "./Header.js";
 import './App.css';
 import Pagination from "./Pagination";
+//import './index.css';
+//import './style2.css';
 
-function App() {
+export default function App() {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("react");
   const [loading, setLoading] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0)
   const [pageCount, setPageCount] = useState(50); // api support up to a maximum of 50 page only
   const [currentPage, setCurrentPage] = useState(0);
-
-  const fetchData = () => {
-    setLoading(true);
-    let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}&page=${currentPage}`;
+  // const [stylePath, setStylePath] = useState("./index.css");
+ 
+  const fetchData = (setArticles) => {
+    setLoading(true)
+    let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}`
     fetch(endpoint)
     .then((response) => response.json())
     .then((response) => {
@@ -30,7 +34,6 @@ function App() {
       .sort((a, b) => (a.num_comments > b.num_comments ? -1:1));
       setArticles(newArticles);
       setQuery(response.query);
-      setPageCount(response.nbPages);
     })
     // Error handling
     .catch(error => {
@@ -39,22 +42,22 @@ function App() {
     });
   }
 
-  const pageChange = (data) => {
-    setCurrentPage(data.selected);
-    fetchData();
-  }
-
   useEffect(() => {
-      fetchData();
+      fetchData(setArticles);
       // Automatic data refresh after 5 minutes
       const interval = setInterval(() => {
-        fetchData();
+        fetchData(setArticles);
       }, 300000);
       return () => clearInterval(interval);
   }, [query]);
 
+  const expandArticle = (index) => {
+    setSelectedIndex(index);
+  }
+
    return (
     <div className="default light">
+     
       <div className="container">
         <Header setQuery={setQuery} />
         {/*Display spinner if news are loading*/}
@@ -64,24 +67,19 @@ function App() {
         <section className="SearchResults" style={loading ? {display:"none"} : {display:"block"}}>
           <div className="SearchResults_container">
             {/*Check if search gave results*/}
-            <div className="search-term">{articles.length ? `News about "${query}": ` : `No news found for "${query}"`}</div>
+            <div className="search-term">{articles.length ? `${articles.length} News about "${query}": ` : `No news found for "${query}"`}</div>
             {articles.map((article, index) => (
               <Article
                 key={index}
                 index={index}
+                selectedIndex = {selectedIndex}
                 article={article}
+                expand={expandArticle}
               />
             ))}
           </div>
         </section>
-        <div className="pagination" style={loading ? {display:"none"} : {display:"block"}}>
-       <Pagination pageCount={pageCount} pageChange={pageChange}/>
-       </div>
-
       </div>
-
-    </div>
-  );
-}
-
-export default App;
+      </div>
+      
+   )}
