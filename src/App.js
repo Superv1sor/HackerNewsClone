@@ -79,6 +79,8 @@ export default function App() {
             ))}
           </div>
         </section>
+        <div className="pagination" style={loading ? {display:"none"} : {display:"block"}}>
+       <Pagination pageCount={pageCount} pageChange={pageChange}/>
       </div>
       </div>
       
