@@ -126,6 +126,26 @@ header {
   width: 80%!important;
 }
 
+form {
+  margin:0px;
+  display: flex;
+  width: 80%!important;
+}
+
+.SearchHeader_settings {
+  display: flex;
+  padding: 9px 0 0 0;
+  background-color: transparent;
+  margin-left: 20px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.SearchHeader_settings svg {
+  margin: 0 8px;
+}
+
 @media (max-width: 768px) {
   button.searchButton{display:none}
   .SearchHeader_container {width:100%!important;justify-content: flex-end}
@@ -257,4 +277,43 @@ input {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.pagination ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #f6f6ef;
+  padding: 8px 0;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: 0;
+  padding-left: 0;
+    list-style-type: none;
+}
+
+.pagination ul li.selected a {
+  color: #ff742b;
+  border: 1px solid #ff742b;
+}
+
+.pagination ul li.previous a, .pagination ul li.next a {
+  padding: 3px 5px;
+}
+
+.pagination ul a {
+  display: block;
+  padding: 3px 2px 0 2px;
+  min-width: 30px;
+  height: 24px;
+  font-size: 12px;
+  margin: 0 2px;
+  color: #9d9d9d;
+  border: 1px solid #9d9d9d;
+  text-align: center;
+  border-radius: 2px;
+  font-weight: 400;
+  background-color: transparent;
+  cursor: pointer;
 }
