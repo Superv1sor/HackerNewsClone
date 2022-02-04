@@ -14,10 +14,10 @@ export default function App() {
   const [pageCount, setPageCount] = useState(50); // api support up to a maximum of 50 page only
   const [currentPage, setCurrentPage] = useState(0);
   // const [stylePath, setStylePath] = useState("./index.css");
- 
-  const fetchData = (setArticles) => {
-    setLoading(true)
-    let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}`
+
+  const fetchData = () => {
+    setLoading(true);
+    let endpoint = `https://hn.algolia.com/api/v1/search?query=${query}&page=${currentPage}&tags=story`;
     fetch(endpoint)
     .then((response) => response.json())
     .then((response) => {
